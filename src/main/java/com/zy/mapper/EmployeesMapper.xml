@@ -20,6 +20,15 @@
         SELECT * FROM EMPLOYEES
     </select>
 
+    <select id="findPageEmployees" parameterType="java.lang.Integer" resultMap="employeesResultMap">
+        select * from ( select row_.*, rownum rownum_ from ( select * from  employees ) row_
+        where rownum &lt;=  (#{pageIndex}+1) * #{pageSize} ) where rownum_ &gt;  #{pageIndex} * #{pageSize}
+    </select>
+
+    <select id="getCount" resultType="java.lang.Integer">
+        select count(*) from employees
+    </select>
+
     <select id="findNameById" parameterType="java.lang.Integer" resultType="java.lang.String">
         select name from employees where id=#{id}
     </select>
