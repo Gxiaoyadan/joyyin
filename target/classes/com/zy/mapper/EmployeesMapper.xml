@@ -8,9 +8,15 @@
  -->
 <mapper namespace="com.zy.mapper.EmployeesMapper">
 
+<!--    解决mybatis查询回字段带下划线，自动去掉问题-->
+    <resultMap id="employeesResultMap" type="com.zy.pojo.Employees">
+        <result property="dept_name" column="dept_name"/>
+        <result property="position_name" column="position_name"/>
+    </resultMap>
+
     <!-- 在映射文件中配置很多sql语句 -->
 
-    <select id="findAllEmployees" resultType="com.zy.pojo.Employees">
+    <select id="findAllEmployees" resultMap="employeesResultMap">
         SELECT * FROM EMPLOYEES
     </select>
 
