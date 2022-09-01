@@ -33,7 +33,7 @@
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <!--给逻辑视图加上前缀和后缀-->
         <property name="prefix" value="/"></property>
-        <property name="suffix" value=".jsp"></property>
+        <property name="suffix" value=".html"></property>
     </bean>
 
 
