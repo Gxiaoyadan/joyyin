@@ -42,20 +42,20 @@
     </servlet-mapping>
 
     <!-- springmvc前端控制器，rest配置 -->
-    <servlet>
-        <servlet-name>springmvc_rest</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!-- contextConfigLocation配置springmvc加载的配置文件（配置处理器映射器、适配器等等） 如果不配置contextConfigLocation，默认加载的是/WEB-INF/servlet名称-serlvet.xml（springmvc-servlet.xml） -->
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:springmvc.xml</param-value>
-        </init-param>
-    </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>springmvc_rest</servlet-name>-->
+<!--        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+<!--        &lt;!&ndash; contextConfigLocation配置springmvc加载的配置文件（配置处理器映射器、适配器等等） 如果不配置contextConfigLocation，默认加载的是/WEB-INF/servlet名称-serlvet.xml（springmvc-servlet.xml） &ndash;&gt;-->
+<!--        <init-param>-->
+<!--            <param-name>contextConfigLocation</param-name>-->
+<!--            <param-value>classpath:springmvc.xml</param-value>-->
+<!--        </init-param>-->
+<!--    </servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>springmvc_rest</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>springmvc_rest</servlet-name>-->
+<!--        <url-pattern>/</url-pattern>-->
+<!--    </servlet-mapping>-->
 
     <!--配置过滤器，解决中文编码乱码问题-->
     <!--从客户端传过来的数据，到后台输出乱码，在web.xml配置过滤器-->

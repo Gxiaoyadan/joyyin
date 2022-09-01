@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page contentType="text/html; charset=utf-8"%>
+<%@ page language="java" pageEncoding="utf-8"%>
 <head>
     <title>Title</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <script src="/static/jquery.min.js" type="text/javascript"></script>
-    <link href="/static/css/miniui.css" rel="stylesheet" type="text/css" />
-    <script src="/static/js/miniui.js" type="text/javascript"></script>
+    <meta http-equiv="Content-Type" content="text/html charset=utf-8">
+    <script src="../scripts/jquery.min.js" type="text/javascript"></script>
+    <link href="../scripts/miniui/themes/default/miniui.css" rel="stylesheet" type="text/css" />
+    <script src="../scripts/miniui/miniui.js" type="text/javascript"></script>
 </head>
 <body>
     <div id="datagrid1" class="mini-datagrid" style="width:700px;height:250px;"
-         url="http://localhost:8080/joyyin/employees/getEmployees" autoLoad="true" pageSize="4" sizeList="[2,4,8,16]">
+         url="http://localhost:8080/joyyin/employees/getEmployees.do" autoLoad="true" pageSize="4" sizeList="[2,4,8,16]">
         <div property="columns">
             <div type="indexcolumn"></div>
             <div field="loginname" width="120" headerAlign="center" allowSort="true">员工账号</div>
@@ -33,10 +33,11 @@
 
     function loadData(){
         $.ajax({
-            url:"http://localhost:8080/SearchEmp",
+            url:"http://localhost:8080/joyyin/employees/getEmployees.do",
             type:"get",
 
             success:function(data){
+                alert(data);
                 grid.reload();
             },
              error: function (jqXHR, textStatus, errorThrown) {
