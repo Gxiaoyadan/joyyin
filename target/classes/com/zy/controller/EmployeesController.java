@@ -3,6 +3,7 @@ package com.zy.controller;
 import com.zy.pojo.Employees;
 import com.zy.service.EmployeesService;
 import com.zy.vo.EmployeesVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-
+@Slf4j
 @Controller
 @RequestMapping("/employees")
 public class EmployeesController {
@@ -26,9 +27,8 @@ public class EmployeesController {
     @RequestMapping(value = "/getEmployees")
     @ResponseBody
     public List<Employees> getAllEmployees(){
-        System.out.println("GET ONE");
         List<Employees> empList = employeesService.findAllEmployees();
-        System.out.println(empList);
+        log.info(empList.toString());
         return employeesService.findAllEmployees();
     }
 
@@ -42,7 +42,8 @@ public class EmployeesController {
     @RequestMapping(value = "/getPageEmployees")
     @ResponseBody
     public EmployeesVO getPageEmployees(@RequestParam Integer pageIndex,
-                                              @RequestParam Integer pageSize){
+                                        @RequestParam Integer pageSize){
+        log.info("Begin Padding query employees");
         EmployeesVO empVO = new EmployeesVO();
         List<Employees> empList = employeesService.findPageEmployees( pageIndex,pageSize);
         int empTotal = employeesService.getCount();
