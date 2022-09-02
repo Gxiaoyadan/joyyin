@@ -5,6 +5,7 @@ import com.zy.pojo.Employees;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
@@ -25,8 +26,11 @@ public class EmployeesServiceImpl implements EmployeesService{
     }
 
     @Override
+    @Transactional
     public Integer getCount() {
-        return employeesMapper.getCount();
+        int empCount = employeesMapper.getCount();
+        //int temp =1/0;
+        return empCount;
     }
 
     @Override
