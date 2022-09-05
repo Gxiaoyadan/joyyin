@@ -8,7 +8,7 @@
  -->
 <mapper namespace="com.zy.mapper.EmployeesMapper">
 
-<!--    解决mybatis查询回字段带下划线，自动去掉问题-->
+<!--    解决mybatis查询回字段带下划线，自动去掉问题(使用resultMap)-->
     <resultMap id="employeesResultMap" type="com.zy.pojo.Employees">
         <result property="dept_name" column="dept_name"/>
         <result property="position_name" column="position_name"/>
